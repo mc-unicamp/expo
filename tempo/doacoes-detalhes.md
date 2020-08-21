@@ -1,4 +1,4 @@
-# 1 Doação de R$5,00
+# 1 Doação de R$8,00
 
 Receba um desenho virtual de um ambiente do passado ou de um organismo fóssil brasileiro, como um dos que estará presente na exposição
 
