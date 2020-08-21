@@ -19,7 +19,19 @@
 
   <script>
     function realizaDoacao() {
-      document.querySelector("#formulario-doacao").submit();
+      const required = ["nome", "numerodocumento", "cep", "endereco", "bairro", "cidade", "uf", "celular", "email"];
+      const fieldName = ["Nome", "Número do Documento", "CEP", "Endereço", "Bairro", "Cidade", "UF", "Celular", "Email"];
+      let emptyField = -1;
+      for (let r in required) {
+        let field = document.querySelector("#" + required[r]);
+        console.log(field.value);
+        if (field.value.trim().length == 0)
+          emptyField = r;
+      }
+      if (emptyField == -1)
+        document.querySelector("#formulario-doacao").submit();
+      else
+        document.querySelector("#mensagem-erro").innerHTML = "O campo " + fieldName[emptyField] + " é obrigatório";
     }
   </script>
 
@@ -33,9 +45,25 @@
       <div class="h-100 w-100 create-case-padding scroll-y">
         <h1>Doação para a Exposição Tempo Profundo</h1>
 
+        <h2 id="mensagem-erro" style="color:Red"></h2>
+
         <div class="row" style="padding-bottom: 70px;">
           <div class="col-md-6">
-            <form id="formulario-doacao" action="submeter.html">
+            <form id="formulario-doacao" action="https://detroit.funcamp.unicamp.br/portaleventos/WebAPI/Inscricao">
+              <input type="hidden" id="identificador" name="identificador" value="HOM6377e1940424f8a4dc0bb043b19599f5d97">
+              <input type="hidden" id="descricao" name="descricao" value="Campanha de Doações para a Exposição Tempo Profundo">
+              <input type="hidden" id="pais" name="pais" value="Brasil">
+              <input type="hidden" id="formapagamento" name="formapagamento" value="2">
+              <input type="hidden" id="datavencimento" name="datavencimento" value="">
+              <input type="hidden" id="redirect" name="redirect" value="S">
+              <input type="hidden" id="notificarporemail" name="notificarporemail" value="S">
+              <input type="hidden" id="flagprecificarporevento" name="flagprecificarporevento" value="N">
+              <input type="hidden" id="flagvalidarpagador" name="flagvalidarpagador" value="N">
+              <input type="hidden" id="flagpossuilotes" name="flagpossuilotes" value="N">
+              <input type="hidden" id="flagpossuitemas" name="flagpossuitemas" value="N">
+              <input type="hidden" id="numeropedido" name="numeropedido">
+              <input type="hidden" id="tipoderetorno" name="tipoderetorno" value="resumo">
+
               <div class="form-group">
                 <label for="nome">Nome Completo<span class="required"> (*)</span></label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome do doador">
@@ -48,7 +76,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label id="spantitulotipodocumento">Número do Documento<span class="required"> (*)</span></label>
+                <label for="numerodocumento">Número do Documento<span class="required"> (*)</span></label>
                 <input type="text" class="form-control" placeholder="Informe o número de documento" id="numerodocumento" name="numerodocumento">
               </div>
               <div class="form-group">
@@ -112,7 +140,10 @@
                 <label for="email">E-mail<span class="required">(*)</span></label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="E-mail do doador">
               </div>
-
+              <div class="form-group">
+                <label for="valor">Valor<span class="required">(*)</span></label>
+                <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor a ser doado">
+              </div>
               <a class="btn btn-primary" role="button" onclick="realizaDoacao()">Gerar Boleto</a>
             </form>
           </div>
