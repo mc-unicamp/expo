@@ -14,9 +14,9 @@ A profa. Dra. Carolina Zabini, paleontóloga e professora pesquisadora do Instit
 # Doações
 [![Doações](doacoes.png)](doe.html)
 
-[Detalhes sobre Doações](doacoes-detalhes.html)
+## [Detalhes sobre Doações](doacoes-detalhes.html)
 
-[Doe aqui](doe.html)
+## [Doe aqui](doe.html)
 
 # Pesquisa
 A exposição também também está sendo elaborada de forma a funcionar como um laboratório para o desenvolvimento de atividades de pesquisa em ensino de geociências no âmbito do programa de pós-graduação em Ensino e História das Ciências da Terra do IG/UNICAMP. 
