@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Doe para a Exposição Tempo Profundo</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+
+  <link rel="stylesheet" href="../lib/bootstrap-4-5-2/css/bootstrap.min.css">
+
+  <style>
+    .required {
+       color: Red;
+    }
+    .formulario-principal {
+       margin-left: 20px;
+       margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    function realizaDoacao() {
+      document.querySelector("#formulario-doacao").submit();
+    }
+  </script>
+
+</head>
+
+<body>
+  <!-- Create a section to place page content -->
+  <main role="main">
+    <div class="d-flex flex-column vh-100 vw-100 hidden-overflow formulario-principal">
+
+      <div class="h-100 w-100 create-case-padding scroll-y">
+        <h1>Doação para a Exposição Tempo Profundo</h1>
+
+        <div class="row" style="padding-bottom: 70px;">
+          <div class="col-md-6">
+            <form id="formulario-doacao" action="submeter.html">
+              <div class="form-group">
+                <label for="nome">Nome Completo<span class="required"> (*)</span></label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome do doador">
+              </div>
+              <div class="form-group">
+                <label for="tipodocumento">Tipo de Documento<span class="required"> (*)</span></label>
+                <select id="tipodocumento" name="tipodocumento" style="width:200px;">
+                    <option value="CPF" selected="selected">CPF</option>
+                    <option value="CNPJ">CNPJ</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label id="spantitulotipodocumento">Número do Documento<span class="required"> (*)</span></label>
+                <input type="text" class="form-control" placeholder="Informe o número de documento" id="numerodocumento" name="numerodocumento">
+              </div>
+              <div class="form-group">
+                <label>CEP<span class="required">(*)</span></label>
+                <input title="Exemplo: 13083-851" class="form-control" placeholder="Informe o CEP" name="cep" id="cep" style="width:155px;">
+              </div>
+              <div class="form-group">
+                <label>Endereço<span class="required">(*)</span></label>
+                <input type="text" class="form-control" placeholder="Informe seu endereço" name="endereco" id="endereco">
+              </div>
+              <div class="form-group">
+                <label>Número</label>
+                <input type="text" class="form-control" placeholder="Número" name="numero" id="numero" style="width:80px;">
+              </div>
+              <div class="form-group">
+                <label>Bairro<span class="required">(*)</span></label>
+                <input type="text" class="form-control" placeholder="Informe o bairro" name="bairro" id="bairro" maxlength="72">
+              </div>
+              <div class="form-group">
+                <label>Cidade<span class="required">(*)</span></label>
+                <input type="text" class="form-control" placeholder="Informe a cidade" name="cidade" id="cidade" maxlength="60">
+              </div>
+              <div class="form-group">
+                <label>Estado<span class="required">(*)</span></label>
+                <select name="uf" id="uf" class="form-control" style="width: 155px;">
+                    <option value="">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagias</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espirito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Manaus</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Píaui</option>
+                    <option value="PR">Paraná</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="celular">Celular<span class="required">(*)</span></label>
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular do doador">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail<span class="required">(*)</span></label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="E-mail do doador">
+              </div>
+
+              <a class="btn btn-primary" role="button" onclick="realizaDoacao()">Gerar Boleto</a>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <!-- end of div /.container -->
+
+</body>
+</html>
