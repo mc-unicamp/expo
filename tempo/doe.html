@@ -21,6 +21,21 @@
     function realizaDoacao() {
       const required = ["nome", "numerodocumento", "cep", "endereco", "bairro", "cidade", "uf", "celular", "email"];
       const fieldName = ["Nome", "Número do Documento", "CEP", "Endereço", "Bairro", "Cidade", "UF", "Celular", "Email"];
+
+      let d = new Date();
+
+      let dia = d.getDay().toString();
+      let mes = d.getMonth().toString();
+      let ano = d.getYear().toString();
+      let h = d.getHours().toString();
+      let m = d.getMinutes().toString();
+      let s = d.getSeconds().toString();
+
+      let chave = Math.floor(Math.random() * (9000 - 1 + 1)) + 1;
+      let strchave = dia + mes + h + m + s + chave.toString();
+
+      document.querySelector("#numeropedido").value = strchave;
+
       let emptyField = -1;
       for (let r in required) {
         let field = document.querySelector("#" + required[r]);
@@ -45,15 +60,16 @@
       <div class="h-100 w-100 create-case-padding scroll-y">
         <h1>Doação para a Exposição Tempo Profundo</h1>
 
+        Há possibilidade de pagamento por boleto ou cartão. Recomendamos o uso de cartão para pagamentos até R$ 100, acima desse valor, recomendamos o uso de boleto bancário.
+
         <h2 id="mensagem-erro" style="color:Red"></h2>
 
         <div class="row" style="padding-bottom: 70px;">
           <div class="col-md-6">
-            <form id="formulario-doacao" action="https://detroit.funcamp.unicamp.br/portaleventos/WebAPI/Inscricao">
-              <input type="hidden" id="identificador" name="identificador" value="HOM6377e1940424f8a4dc0bb043b19599f5d97">
+            <form id="formulario-doacao" action="https://www.funcamp.unicamp.br/portaleventos/WebAPI/Inscricao">
+              <input type="hidden" id="identificador" name="identificador" value="PROD640704e89f06a174132b1ea6d083221b165">
               <input type="hidden" id="descricao" name="descricao" value="Campanha de Doações para a Exposição Tempo Profundo">
               <input type="hidden" id="pais" name="pais" value="Brasil">
-              <input type="hidden" id="formapagamento" name="formapagamento" value="2">
               <input type="hidden" id="datavencimento" name="datavencimento" value="">
               <input type="hidden" id="redirect" name="redirect" value="S">
               <input type="hidden" id="notificarporemail" name="notificarporemail" value="S">
@@ -141,10 +157,17 @@
                 <input type="text" class="form-control" id="email" name="email" placeholder="E-mail do doador">
               </div>
               <div class="form-group">
+                <label for="formapagamento">Forma de Pagamento<span class="required"> (*)</span></label>
+                <select id="formapagamento" name="formapagamento" style="width:200px;">
+                    <option value="10" selected="selected">Cartão</option>
+                    <option value="2">Boleto</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="valor">Valor<span class="required">(*)</span></label>
                 <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor a ser doado">
               </div>
-              <a class="btn btn-primary" role="button" onclick="realizaDoacao()">Gerar Boleto</a>
+              <a class="btn btn-primary" role="button" onclick="realizaDoacao()">Pagar</a>
             </form>
           </div>
         </div>
