@@ -1,3 +1,5 @@
+# Exposição Tempo Profundo
+
 # Objetivo principal
 O objetivo deste projeto de crowdfunding é organizar uma exposição científica sobre o tema “Tempo profundo”,  a ser realizada no Instituto Principia, em São Paulo.
 
